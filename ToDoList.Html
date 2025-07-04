@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>To Do List</title>
+    <!--<link rel="Stylesheet" href="style.css" type="text/css">-->
+    <style>
+        body{
+            margin: 300px;
+            margin-top: auto;
+            border: 150px;
+            padding: 150px;
+            background-color: aqua;
+            border-color: azure;
+        }
+
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button{
+            margin-left: 2em;
+            background-color: #4CAF50; /* Green */  
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>ToDo List</h1>
+    <div class="box">
+        <input id="input" placeholder="Enter your Daily Task">
+        <button onclick="add()">Add</button>
+        <ul id="list-container"></ul>
+    </div>
+</body>
+</html>
+
+<script>
+    var ul=document.getElementById("list-container")
+    var input=document.getElementById("input")
+    function add()
+    {
+        var listitem=document.createElement("li")
+        //listitem.textContent=input.value
+        listitem.innerHTML=input.value + "<button onclick='deleteitem(event)'>Delete</button>"
+        ul.append(listitem)
+        //alert("Task saved successfully")
+    }
+    function deleteitem(event)
+    {
+        event.target.parentElement.remove()
+    }
+</script>
